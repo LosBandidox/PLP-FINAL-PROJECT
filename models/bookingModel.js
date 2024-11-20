@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mysql';
 
-const bookingSchema = mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+const bookingSchema = Schema({
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     busRoute: { type: String, required: true },
     seatNumber: { type: String, required: true },
     classType: { type: String, required: true },
@@ -11,4 +11,4 @@ const bookingSchema = mongoose.Schema({
     timestamps: true,
 });
 
-module.exports = mongoose.model('Booking', bookingSchema);
+export default model('Booking', bookingSchema);

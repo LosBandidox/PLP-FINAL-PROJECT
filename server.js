@@ -1,11 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const connectDB = require('./config/db');
+import express from 'express';
+import { config } from 'dotenv';
+import cors from 'cors';
+import { json } from 'body-parser';
+import connectDB from './config/db';
 
 // Load environment variables
-dotenv.config();
+config();
 
 // Connect to the database
 connectDB();
@@ -14,7 +14,7 @@ const app = express();
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(json());
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
