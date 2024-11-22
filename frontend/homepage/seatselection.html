@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Selection Layout</title>
+    <!-- Bootstrap CSS -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+    <link href="/styles/seatselection.css" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .filters-section {
+        border-right: 1px solid #ddd;
+        background-color: #fff;
+        padding: 1rem;
+      }
+
+      .filter-header {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .deals-card {
+        border-radius: 10px;
+        background-color: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .deals-card img {
+        width: 60px;
+        height: auto;
+      }
+
+      .deals-card h6 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .deals-card p {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+      }
+
+      .card-header {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .price-tag {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #343a40;
+      }
+
+      .discounted {
+        text-decoration: line-through;
+        font-size: 0.9rem;
+        color: #999;
+      }
+
+      .view-seats-btn {
+        background-color: #dc3545;
+        color: white;
+      }
+       /* Modal Content Styling */
+  .modal-body {
+    font-family: Arial, sans-serif;
+  }
+
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+  }
+
+  .seat.available {
+    background-color: #28a745; /* Green for available */
+  }
+
+  .seat.unavailable {
+    background-color: #6c757d; /* Gray for unavailable */
+    cursor: not-allowed;
+  }
+
+  .seat.female {
+    background-color: #ff69b4; /* Pink for female */
+  }
+
+  .seat-legend {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .legend-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+
+  .legend-available {
+    background-color: #28a745;
+  }
+
+  .legend-unavailable {
+    background-color: #6c757d;
+  }
+
+  .legend-female {
+    background-color: #ff69b4;
+  }
+    </style>
+  </head>
+  <body>
+    <div  id="main h-100">
+        <!-- <special-header></special-header> -->
+    <div class="container my-4 mt-5">
+      <div class="row">
+        <!-- Filters Section -->
+        <div class="col-md-3 filters-section">
+          <h6 class="filter-header">FILTERS</h6>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="liveTracking" />
+            <label class="form-check-label" for="liveTracking"
+              >Live Tracking (1)</label
+            >
+          </div>
+
+          <h6 class="filter-header mt-4">DEPARTURE TIME</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="before6am" />
+            <label class="form-check-label" for="before6am"
+              >Before 6 am (0)</label
+            >
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="after6pm" />
+            <label class="form-check-label" for="after6pm"
+              >After 6 pm (1)</label
+            >
+          </div>
+
+          <h6 class="filter-header mt-4">BUS TYPES</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="sleeper" />
+            <label class="form-check-label" for="sleeper">Sleeper (1)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="ac" />
+            <label class="form-check-label" for="ac">AC (1)</label>
+          </div>
+
+          <h6 class="filter-header mt-4">ARRIVAL TIME</h6>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="before6amArrival"
+            />
+            <label class="form-check-label" for="before6amArrival"
+              >Before 6 am (0)</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="after6pmArrival"
+            />
+            <label class="form-check-label" for="after6pmArrival"
+              >After 6 pm (1)</label
+            >
+          </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="col-md-9">
+          <!-- Exclusive Deals Cards -->
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="deals-card">
+                <div>
+                  <h6>Exclusive</h6>
+                  <p>Handpicked deals for you</p>
+                </div>
+                <img
+                  src="/frontend/homepage/assets/offer (2).webp"
+                  alt="Exclusive Deals"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="deals-card">
+                <div>
+                  <h6>Early Buy</h6>
+                  <p>Buy early to get special prices</p>
+                </div>
+                <img src="/frontend/homepage/assets/mega-offer.webp" alt="Early Buy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Bus List Section -->
+          <div class="card mb-3">
+            <div class="card-header">
+              Srinath® Travel Agency Pvt. Ltd. - A/C Sleeper (2+1)
+            </div>
+            <div class="card-body">
+              <div class="row align-items-center">
+                <!-- Departure and Arrival -->
+                <div class="col-md-2 text-center">
+                  <h5>18:00</h5>
+                  <p class="mb-0 text-muted">Tis Hazari</p>
+                </div>
+                <div class="col-md-2 text-center">
+                  <p class="mb-0">24h 00m</p>
+                </div>
+                <div class="col-md-2 text-center">
+                  <h5>18:00</h5>
+                  <p class="mb-0 text-muted">Green Land Chokdi</p>
+                </div>
+
+                <!-- Ratings -->
+                <div class="col-md-2 text-center">
+                  <span class="badge bg-danger">2.0</span>
+                  <p class="mb-0">23 Ratings</p>
+                </div>
+
+                <!-- Pricing -->
+                <div class="col-md-2 text-center">
+                  <p class="discounted">INR 3500</p>
+                  <p class="price-tag">3325</p>
+                  <small class="text-muted">redDeal applied</small>
+                </div>
+
+                <!-- Seats -->
+                <div class="col-md-2 text-center">
+                  <p class="mb-0">22 Seats available</p>
+                  <button class="btn view-seats-btn btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#seatModal">
+                    View Seats
+                  </button>
+                   <!-- Seat Modal -->
+    <div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true modal-body" style="max-height: 400px; overflow-y: auto;">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="seatModalLabel">Select Your Seats</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted">Click on an available seat to proceed with your transaction.</p>
+                <div>
+                  <h6>Lower Deck</h6>
+                  <div class="d-flex flex-wrap">
+                    <div class="seat available">1</div>
+                    <div class="seat female">2</div>
+                    <div class="seat unavailable">3</div>
+                    <div class="seat available">4</div>
+                    <div class="seat unavailable">5</div>
+                    <div class="seat available">6</div>
+                    <div class="seat available">7</div>
+                    <div class="seat unavailable">8</div>
+                  </div>
+                  <h6 class="mt-4">Upper Deck</h6>
+                  <div class="d-flex flex-wrap">
+                    <div class="seat available">1</div>
+                    <div class="seat available">2</div>
+                    <div class="seat unavailable">3</div>
+                    <div class="seat available">4</div>
+                    <div class="seat unavailable">5</div>
+                    <div class="seat available">6</div>
+                  </div>
+                </div>
+                <!-- Seat Legend -->
+                <div class="seat-legend mt-4">
+                  <h6>Seat Legend</h6>
+                  <p>
+                    <span class="legend-box legend-available"></span> Available
+                    <span class="legend-box legend-unavailable"></span> Unavailable
+                    <span class="legend-box legend-female"></span> Female
+                  </p>
+                </div>
+              </div>
+              
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hide Seats</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add more bus cards if needed -->
+        </div>
+      </div>
+    </div>
+    </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              Srinath® Travel Agency Pvt. Ltd. - A/C Sleeper (2+1)
+            </div>
+            <div class="card-body">
+              <div class="row align-items-center">
+                <!-- Departure and Arrival -->
+                <div class="col-md-2 text-center">
+                  <h5>15:00</h5>
+                  <p class="mb-0 text-muted">Tis Hazari</p>
+                </div>
+                <div class="col-md-2 text-center">
+                  <p class="mb-0">24h 00m</p>
+                </div>
+                <div class="col-md-2 text-center">
+                  <h5>16:00</h5>
+                  <p class="mb-0 text-muted">Green Land Chokdi</p>
+                </div>
+
+                <!-- Ratings -->
+                <div class="col-md-2 text-center">
+                  <span class="badge bg-danger">2.0</span>
+                  <p class="mb-0">23 Ratings</p>
+                </div>
+
+                <!-- Pricing -->
+                <div class="col-md-2 text-center">
+                  <p class="discounted">INR 3200</p>
+                  <p class="price-tag">3025</p>
+                  <small class="text-muted">redDeal applied</small>
+                </div>
+
+                <!-- Seats -->
+                <div class="col-md-2 text-center">
+                  <p class="mb-0">15 Seats available</p>
+                  <button class="btn view-seats-btn btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#seatModal">
+                    View Seats
+                  </button>
+                   <!-- Seat Modal -->
+                   <div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="seatModalLabel">Select Your Seats</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-muted">Click on an available seat to proceed with your transaction.</p>
+                            <div>
+                              <h6>Lower Deck</h6>
+                              <div class="d-flex flex-wrap">
+                                <div class="seat available">1</div>
+                                <div class="seat female">2</div>
+                                <div class="seat unavailable">3</div>
+                                <div class="seat available">4</div>
+                                <div class="seat unavailable">5</div>
+                                <div class="seat available">6</div>
+                                <div class="seat available">7</div>
+                                <div class="seat unavailable">8</div>
+                              </div>
+                              <h6 class="mt-4">Upper Deck</h6>
+                              <div class="d-flex flex-wrap">
+                                <div class="seat available">1</div>
+                                <div class="seat available">2</div>
+                                <div class="seat unavailable">3</div>
+                                <div class="seat available">4</div>
+                                <div class="seat unavailable">5</div>
+                                <div class="seat available">6</div>
+                              </div>
+                            </div>
+                            <!-- Seat Legend -->
+                            <div class="seat-legend mt-4">
+                              <h6>Seat Legend</h6>
+                              <p>
+                                <span class="legend-box legend-available"></span> Available
+                                <span class="legend-box legend-unavailable"></span> Unavailable
+                                <span class="legend-box legend-female"></span> Female
+                              </p>
+                            </div>
+                          </div>
+                          
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hide Seats</button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+          <!-- Add more bus cards if needed -->
+        </div>
+      </div>
+    </div>
+    </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              Srinath® Travel Agency Pvt. Ltd. - A/C Sleeper (2+1)
+            </div>
+            <div class="card-body">
+              <div class="row align-items-center">
+                <!-- Departure and Arrival -->
+                <div class="col-md-2 text-center">
+                  <h5>14:00</h5>
+                  <p class="mb-0 text-muted">Tis Hazari</p>
+                </div>
+                <div class="col-md-2 text-center">
+                  <p class="mb-0">22h 00m</p>
+                </div>
+                <div class="col-md-2 text-center">
+                  <h5>13:00</h5>
+                  <p class="mb-0 text-muted">Green Land Chokdi</p>
+                </div>
+
+                <!-- Ratings -->
+                <div class="col-md-2 text-center">
+                  <span class="badge bg-danger">2.0</span>
+                  <p class="mb-0">23 Ratings</p>
+                </div>
+
+                <!-- Pricing -->
+                <div class="col-md-2 text-center">
+                  <p class="discounted">INR 3500</p>
+                  <p class="price-tag">2755</p>
+                  <small class="text-muted">redDeal applied</small>
+                </div>
+
+                <!-- Seats -->
+                <div class="col-md-2 text-center">
+                  <p class="mb-0">18 Seats available</p>
+                  <button class="btn view-seats-btn btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#seatModal">
+                    View Seats
+                  </button>
+                   <!-- Seat Modal -->
+                   <div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="seatModalLabel">Select Your Seats</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p class="text-muted">Click on an available seat to proceed with your transaction.</p>
+                          <div>
+                            <h6>Lower Deck</h6>
+                            <div class="d-flex flex-wrap">
+                              <div class="seat available">1</div>
+                              <div class="seat female">2</div>
+                              <div class="seat unavailable">3</div>
+                              <div class="seat available">4</div>
+                              <div class="seat unavailable">5</div>
+                              <div class="seat available">6</div>
+                              <div class="seat available">7</div>
+                              <div class="seat unavailable">8</div>
+                            </div>
+                            <h6 class="mt-4">Upper Deck</h6>
+                            <div class="d-flex flex-wrap">
+                              <div class="seat available">1</div>
+                              <div class="seat available">2</div>
+                              <div class="seat unavailable">3</div>
+                              <div class="seat available">4</div>
+                              <div class="seat unavailable">5</div>
+                              <div class="seat available">6</div>
+                            </div>
+                          </div>
+                          <!-- Seat Legend -->
+                          <div class="seat-legend mt-4">
+                            <h6>Seat Legend</h6>
+                            <p>
+                              <span class="legend-box legend-available"></span> Available
+                              <span class="legend-box legend-unavailable"></span> Unavailable
+                              <span class="legend-box legend-female"></span> Female
+                            </p>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hide Seats</button>
+                          <button type="button" class="btn btn-primary" id="proceedToBook">Proceed to Book</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+          <!-- Add more bus cards if needed -->
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- <special-footer></special-footer> -->
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../layout/layout.js"></script>
+    <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+   
+</body>
+</html>
