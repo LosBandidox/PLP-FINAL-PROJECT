@@ -1,10 +1,13 @@
-class SpecialHeader extends HTMLElement{
+class LayoutHeader extends HTMLElement{
     connectedCallback(){
         this.innerHTML = `
+        <head>
+            <link rel="stylesheet" type="text/css" href="../homepage/styles/homepage_styles.css">
+        </head>
             <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container-fluid m-0 w-100">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="./assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
+                    <img src="../assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
                     <h2 class="mb-0 ms-2">TravelSphere</h2>
                 </a>
                 
@@ -38,7 +41,7 @@ class SpecialHeader extends HTMLElement{
     }
 }
 
-class SpecialFooter extends HTMLElement{
+class LayoutFooter extends HTMLElement{
     connectedCallback(){
         this.innerHTML = `
         <footer class="w-100 h-50">
@@ -109,5 +112,5 @@ class SpecialFooter extends HTMLElement{
     }
 }
 
-customElements.define('special-header', SpecialHeader)
-customElements.define('special-footer', SpecialFooter)
+customElements.define('layout-header', LayoutHeader)
+customElements.define('layout-footer', LayoutFooter)
