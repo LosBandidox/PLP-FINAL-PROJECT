@@ -112,5 +112,5 @@ class LayoutFooter extends HTMLElement{
     }
 }
 
-customElements.define('layout-header', LayoutHeader)
-customElements.define('layout-footer', LayoutFooter)
+customElements.define('special-header', LayoutHeader)
+customElements.define('special-footer', LayoutFooter)
