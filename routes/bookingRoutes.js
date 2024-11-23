@@ -1,10 +1,13 @@
-import { Router } from 'express';
-import { createBooking, getBookings } from '../controllers/bookingController';
-import authMiddleware from '../middlewares/authMiddleware';
-const router = Router();
+const express = require('express');
+const router = express.Router();
+const bookingController = require('../controllers/bookingController');
 
-// from db
-router.post('/', authMiddleware, createBooking);
-router.get('/', authMiddleware, getBookings);
+// Create a new booking
+router.post('/bookings', bookingController.createBooking);
 
-export default router;
+// Get booking details
+router.get('/bookings/:id', bookingController.getBooking);
+
+module.exports = router;
+
+

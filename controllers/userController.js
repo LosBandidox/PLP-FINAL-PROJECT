@@ -1,33 +1,21 @@
-import { create, findOne } from '../models/userModel';
-import { hash, compare } from 'bcrypt';
-import { sign } from 'jsonwebtoken';
 
-// Register user
-const registerUser = async (req, res) => {
-    const { name, email, password } = req.body;
+// controllers/userController.js
+
+const User = require('../models/userModel');
+
+// Create a new user
+const createUser = async (req, res) => {
     try {
-        const hashedPassword = await hash(password, 10);
-        const user = await create({ name, email, password: hashedPassword });
-        res.status(201).json({ message: 'User registered successfully', user });
+        const { name, email, password, isAdmin } = req.body;
+        const newUser = await User.create({ name, email, password, isAdmin });
+        res.status(201).json(newUser);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
 
-// Login user
-const loginUser = async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        const user = await findOne({ email });
-        if (user && (await compare(password, user.password))) {
-            const token = sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-            res.json({ token });
-        } else {
-            res.status(401).json({ message: 'Invalid credentials' });
-        }
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
+// Export the controller functions
+module.exports = {
+    createUser,
+    // Add other CRUD operations here as needed
 };
-
-export default { registerUser, loginUser };
