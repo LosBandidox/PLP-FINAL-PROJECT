@@ -1,0 +1,202 @@
+/* Seat Block */
+.seat {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+
+body {
+  background-color: grey;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main {
+  position: relative;
+}
+.navbar {
+  font-weight: 200;
+}
+.navbar .container-fluid img {
+  height: 80px;
+  width: 80px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  opacity: 0;
+  transition: all 0.2s;
+  height: 2px;
+  width: 100%;
+  background-color: #606ce4;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+}
+
+.nav-btn {
+  width: 15%;
+  color: aliceblue;
+  background-color: #606ce4;
+}
+.nav-btn:hover {
+  color: aliceblue;
+  background-color: #4b55cc;
+}
+.nav-btn {
+  color: aliceblue;
+  background-color: #606ce4;
+}
+
+.search-icon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.hero-section {
+  height: 100vh;
+  background-image: url("../assets/banner_img.jpg"); /* Replace with your own image URL */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.hero-content {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 8px;
+}
+.hero-content h1 {
+  font-size: 3rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  background-color: #606ce4;
+  border-color: #606ce4;
+}
+
+.cta-section {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 50px 0;
+}
+.cta-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #606ce4;
+}
+.cta-subheading {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+.cta-button {
+  background-color: #606ce4;
+  color: white;
+  padding: 10px 30px;
+  font-size: 1.125rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #606ce4;
+}
+
+footer {
+  position: absolute;
+  top: 100;
+  background-color: #1d2228 !important;
+  padding: 2rem 0;
+}
+
+.email-input {
+  background-color: transparent;
+  width: 20%;
+}
+.email-input::focus {
+  background-color: transparent;
+}
+.email-input::placeholder {
+  color: #fff;
+}
+
+.footer-logo h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.footer-logo img {
+  height: 40px;
+  width: 40px;
+}
+
+.footer-logo span {
+  color: #606ce4;
+}
+
+.footer-divider {
+  width: 81%;
+  border: 1px solid #fff;
+}
+
+.social-icons {
+  width: 200px;
+}
+.social-icons svg {
+  height: 20px;
+  width: 20px;
+}
+
+.btn-subscribe {
+  background-color: #606ce4;
+  color: #fff;
+}
+
+.btn-subscribe:hover {
+  background-color: #4b58c5;
+}
+
+.footer-bottom {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.seat.available {
+  background-color: #28a745;
+}
+
+.seat.occupied {
+  background-color: #dc3545;
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: #ffc107;
+}
+
+/* Center align legend items */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
