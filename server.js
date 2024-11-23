@@ -1,27 +1,42 @@
-import express from 'express';
-import { config } from 'dotenv';
-import cors from 'cors';
-import { json } from 'body-parser';
-import connectDB from './config/db';
+// Import necessary dependencies
+const express = require('express');
+const bodyParser = require('body-parser');
+const sequelize = require('./config/db');
+const userRoutes = require('./routes/userRoutes');
+const bookingRoutes = require('./routes/bookingRoutes'); // Import booking routes
+const { User, Booking } = require('./models'); // Import models to sync
+require('dotenv').config();
 
-// Load environment variables
-config();
-
-// Connect to the database
-connectDB();
-
+// Initialize Express app
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
-app.use(json());
+app.use(bodyParser.json());
 
-// Routes
-app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/bookings', require('./routes/bookingRoutes'));
+// Test database connection and sync models
+sequelize.authenticate()
+    .then(() => {
+        console.log('Connection to the database has been established successfully.');
+        return sequelize.sync(); // Sync all models
+    })
+    .then(() => {
+        console.log('Database synchronized');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
+// Define routes
+app.use('/api', userRoutes);
+app.use('/api', bookingRoutes);
+
+// Example route
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

@@ -1,30 +1,31 @@
-import { create, find } from '../models/bookingModel';
+const Booking = require('../models/bookingModel');
 
-// Create a booking
+// Create a new booking
 const createBooking = async (req, res) => {
-    const { busRoute, seatNumber, classType, date } = req.body;
     try {
-        const booking = await create({
-            user: req.user.id,
-            busRoute,
-            seatNumber,
-            classType,
-            date,
-        });
-        res.status(201).json({ message: 'Booking created successfully', booking });
+        const { userId, busRoute, seatNumber, classType, date, paymentStatus } = req.body;
+        const newBooking = await Booking.create({ userId, busRoute, seatNumber, classType, date, paymentStatus });
+        res.status(201).json(newBooking);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
 
-// Get all bookings for a user
-const getBookings = async (req, res) => {
+// Get booking details
+const getBooking = async (req, res) => {
     try {
-        const bookings = await find({ user: req.user.id });
-        res.json(bookings);
+        const booking = await Booking.findByPk(req.params.id);
+        if (!booking) {
+            return res.status(404).json({ error: 'Booking not found' });
+        }
+        res.status(200).json(booking);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
 
-export default { createBooking, getBookings };
+// Export the controller functions
+module.exports = {
+    createBooking,
+    getBooking,
+};
