@@ -57,7 +57,7 @@ class LayoutFooter extends HTMLElement{
             <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center text-md-start">
                 <!-- Branding -->
                 <div class="text-light footer-logo d-flex align-items-center">
-                    <img src="./assets/logo.png">
+                    <img src="../assets/logo.png">
                     <h3 class="mb-0 ms-3">Explore the World with Us</h3>
                 </div>
 
