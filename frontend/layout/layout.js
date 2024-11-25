@@ -1,6 +1,6 @@
-class LayoutHeader extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML = `
+class LayoutHeader extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
         <head>
             <link rel="stylesheet" type="text/css" href="../homepage/styles/homepage_styles.css">
         </head>
@@ -37,13 +37,13 @@ class LayoutHeader extends HTMLElement{
                 </div>
             </div>
         </header>
-        `
-    }
+        `;
+  }
 }
 
-class LayoutFooter extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML = `
+class LayoutFooter extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
         <footer class="w-100 h-50">
             <div class="text-center text-light mb-4 ">
                 <h5>Subscribe to our newsletter</h5>
@@ -108,9 +108,7 @@ class LayoutFooter extends HTMLElement{
                 </div>
             </div>
         </footer>
-        `
-    }
+        `;
+  }
 }
 
-customElements.define('special-header', LayoutHeader)
-customElements.define('special-footer', LayoutFooter)
