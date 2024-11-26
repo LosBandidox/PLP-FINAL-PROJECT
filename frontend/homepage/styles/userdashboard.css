@@ -1,0 +1,94 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #343a40;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-link {
+  color: #ddd;
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  background-color: #495057;
+}
+
+.nav-link.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.nav-item {
+  margin-bottom: 15px;
+}
+
+/* Main Content Area Styles */
+.col-md-9,
+.col-lg-10 {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styles (Profile, Booking History, Settings) */
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body .form-label {
+  font-weight: bold;
+}
+
+.card-body .form-control {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.card-body .btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Content Toggle Styles */
+.profile-content,
+.booking-history-content,
+.settings-content {
+  display: none;
+}
+
+.profile-content.active,
+.booking-history-content.active,
+.settings-content.active {
+  display: block;
+}

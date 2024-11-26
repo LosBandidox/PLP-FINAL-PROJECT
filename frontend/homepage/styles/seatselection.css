@@ -200,3 +200,8 @@ footer {
   align-items: center;
   gap: 0.5rem;
 }
+
+#infoPanel {
+  position: sticky;
+  top: 20px;
+}

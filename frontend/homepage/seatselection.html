@@ -263,55 +263,136 @@
                   <button class="btn view-seats-btn btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#seatModal">
                     View Seats
                   </button>
-                   <!-- Seat Modal -->
-    <div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true modal-body" style="max-height: 400px; overflow-y: auto;">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="seatModalLabel">Select Your Seats</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="text-muted">Click on an available seat to proceed with your transaction.</p>
-                <div>
-                  <h6>Lower Deck</h6>
-                  <div class="d-flex flex-wrap">
-                    <div class="seat available">1</div>
-                    <div class="seat female">2</div>
-                    <div class="seat unavailable">3</div>
-                    <div class="seat available">4</div>
-                    <div class="seat unavailable">5</div>
-                    <div class="seat available">6</div>
-                    <div class="seat available">7</div>
-                    <div class="seat unavailable">8</div>
-                  </div>
-                  <h6 class="mt-4">Upper Deck</h6>
-                  <div class="d-flex flex-wrap">
-                    <div class="seat available">1</div>
-                    <div class="seat available">2</div>
-                    <div class="seat unavailable">3</div>
-                    <div class="seat available">4</div>
-                    <div class="seat unavailable">5</div>
-                    <div class="seat available">6</div>
-                  </div>
-                </div>
-                <!-- Seat Legend -->
-                <div class="seat-legend mt-4">
-                  <h6>Seat Legend</h6>
-                  <p>
-                    <span class="legend-box legend-available"></span> Available
-                    <span class="legend-box legend-unavailable"></span> Unavailable
-                    <span class="legend-box legend-female"></span> Female
-                  </p>
-                </div>
-              </div>
-              
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hide Seats</button>
-                  </div>
-              </div>
-            </div>
+<!-- Seat Modal -->
+<!-- Seat Selection Modal -->
+<div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="seatModalLabel">Select Your Seats</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Instructions -->
+        <p class="text-muted">Click on an available seat to proceed with your transaction.</p>
+
+        <!-- Seat Layout -->
+        <div>
+          <h6>Lower Deck</h6>
+          <div class="d-flex flex-wrap">
+            <div class="seat available" onclick="selectSeat('1')">1</div>
+            <div class="seat female" onclick="selectSeat('2')">2</div>
+            <div class="seat unavailable" onclick="selectSeat('3')">3</div>
+            <div class="seat available" onclick="selectSeat('4')">4</div>
+            <div class="seat unavailable" onclick="selectSeat('5')">5</div>
+            <div class="seat available" onclick="selectSeat('6')">6</div>
           </div>
+          <h6 class="mt-4">Upper Deck</h6>
+          <div class="d-flex flex-wrap">
+            <div class="seat available" onclick="selectSeat('7')">7</div>
+            <div class="seat available" onclick="selectSeat('8')">8</div>
+            <div class="seat unavailable" onclick="selectSeat('9')">9</div>
+          </div>
+        </div>
+
+        <!-- Boarding and Dropping Points -->
+        <div class="mt-4">
+          <h6>Boarding Point</h6>
+          <select id="boardingPoint" class="form-select mb-3">
+            <option selected disabled>Select Boarding Point</option>
+            <option value="Point A">Point A</option>
+            <option value="Point B">Point B</option>
+            <option value="Point C">Point C</option>
+          </select>
+
+          <h6>Dropping Point</h6>
+          <select id="droppingPoint" class="form-select">
+            <option selected disabled>Select Dropping Point</option>
+            <option value="Point X">Point X</option>
+            <option value="Point Y">Point Y</option>
+            <option value="Point Z">Point Z</option>
+          </select>
+        </div>
+
+        <!-- Seat Legend -->
+        <div class="seat-legend mt-4">
+          <h6>Seat Legend</h6>
+          <p>
+            <span class="legend-box legend-available"></span> Available
+            <span class="legend-box legend-unavailable"></span> Unavailable
+            <span class="legend-box legend-female"></span> Female
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmSelectionBtn">Confirm Selection</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User Details Modal -->
+<div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userDetailsModalLabel">Enter Your Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="userDetailsForm">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="proceedToConfirmationBtn">Proceed to Confirmation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Booking Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Booking Details</h5>
+        <p><strong>Name:</strong> <span id="confirmedName"></span></p>
+        <p><strong>Phone:</strong> <span id="confirmedPhone"></span></p>
+        <p><strong>Email:</strong> <span id="confirmedEmail"></span></p>
+        <p><strong>Seats Selected:</strong> <span id="confirmedSeats"></span></p>
+        <p><strong>Boarding Point:</strong> <span id="confirmedBoarding"></span></p>
+        <p><strong>Dropping Point:</strong> <span id="confirmedDropping"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="finalConfirmBtn">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
           <!-- Add more bus cards if needed -->
         </div>
       </div>
@@ -506,13 +587,13 @@
     
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../layout/layout.js"></script>
-    <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"
-></script>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="../layout/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
    
 </body>
 </html>
