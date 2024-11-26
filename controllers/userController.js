@@ -1,7 +1,14 @@
+const User = require('../models/userModel'); // Import User model
 
-// controllers/userController.js
-
-const User = require('../models/userModel');
+// Fetch all users
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.findAll(); // Fetch all users from the database
+        res.status(200).json(users); // Respond with users data
+    } catch (error) {
+        res.status(400).json({ error: error.message }); // Handle errors
+    }
+};
 
 // Create a new user
 const createUser = async (req, res) => {
@@ -14,8 +21,7 @@ const createUser = async (req, res) => {
     }
 };
 
-// Export the controller functions
 module.exports = {
-    createUser,
-    // Add other CRUD operations here as needed
+    createUser,  // Export create user function
+    getAllUsers, // Export fetch all users function
 };
