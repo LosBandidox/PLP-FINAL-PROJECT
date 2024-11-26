@@ -1,4 +1,14 @@
-const Booking = require('../models/bookingModel');
+const Booking = require('../models/bookingModel'); // Import Booking model
+
+// Fetch all bookings
+const getAllBookings = async (req, res) => {
+    try {
+        const bookings = await Booking.findAll(); // Fetch all bookings from the database
+        res.status(200).json(bookings); // Respond with bookings data
+    } catch (error) {
+        res.status(400).json({ error: error.message }); // Handle errors
+    }
+};
 
 // Create a new booking
 const createBooking = async (req, res) => {
@@ -11,21 +21,7 @@ const createBooking = async (req, res) => {
     }
 };
 
-// Get booking details
-const getBooking = async (req, res) => {
-    try {
-        const booking = await Booking.findByPk(req.params.id);
-        if (!booking) {
-            return res.status(404).json({ error: 'Booking not found' });
-        }
-        res.status(200).json(booking);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-};
-
-// Export the controller functions
 module.exports = {
-    createBooking,
-    getBooking,
+    createBooking,   // Export create booking function
+    getAllBookings,  // Export fetch all bookings function
 };
