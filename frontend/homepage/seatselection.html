@@ -73,12 +73,16 @@
       }
 
       .view-seats-btn {
-        background-color: #dc3545;
+        background-color: #844da7;
         color: white;
       }
        /* Modal Content Styling */
   .modal-body {
     font-family: Arial, sans-serif;
+  }
+
+  .bus-badge{
+    background: #844da7;
   }
 
   .seat {
@@ -92,6 +96,15 @@
     cursor: pointer;
     font-weight: bold;
     color: white;
+  }
+
+  .btn-selection{
+    background-color: #844da7;
+    border: #844da7;
+  }
+  .btn-selection:hover{
+    background-color: #4f2c65 !important;
+    border: #844da7;
   }
 
   .seat.available {
@@ -208,7 +221,7 @@
                   <p>Handpicked deals for you</p>
                 </div>
                 <img
-                  src="/frontend/homepage/assets/offer (2).webp"
+                  src="../assets/offer (2).webp"
                   alt="Exclusive Deals"
                 />
               </div>
@@ -219,7 +232,7 @@
                   <h6>Early Buy</h6>
                   <p>Buy early to get special prices</p>
                 </div>
-                <img src="/frontend/homepage/assets/mega-offer.webp" alt="Early Buy" />
+                <img src="../assets/mega-offer.webp" alt="Early Buy" />
               </div>
             </div>
           </div>
@@ -246,7 +259,7 @@
 
                 <!-- Ratings -->
                 <div class="col-md-2 text-center">
-                  <span class="badge bg-danger">2.0</span>
+                  <span class="badge bus-badge">2.0</span>
                   <p class="mb-0">23 Ratings</p>
                 </div>
 
@@ -326,7 +339,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="confirmSelectionBtn">Confirm Selection</button>
+        <button type="button" class="btn btn-primary btn-selection" id="confirmSelectionBtn">Confirm Selection</button>
       </div>
     </div>
   </div>
@@ -358,7 +371,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="proceedToConfirmationBtn">Proceed to Confirmation</button>
+        <button type="button" class="btn btn-primary btn-selection" id="proceedToConfirmationBtn">Proceed to Confirmation</button>
       </div>
     </div>
   </div>
@@ -383,7 +396,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="finalConfirmBtn">Confirm Booking</button>
+        <button type="button" class="btn btn-primary btn-selection" id="finalConfirmBtn">Confirm Booking</button>
       </div>
     </div>
   </div>
@@ -419,7 +432,7 @@
 
                 <!-- Ratings -->
                 <div class="col-md-2 text-center">
-                  <span class="badge bg-danger">2.0</span>
+                  <span class="badge bus-badge">2.0</span>
                   <p class="mb-0">23 Ratings</p>
                 </div>
 
@@ -511,7 +524,7 @@
 
                 <!-- Ratings -->
                 <div class="col-md-2 text-center">
-                  <span class="badge bg-danger">2.0</span>
+                  <span class="badge bus-badge">2.0</span>
                   <p class="mb-0">23 Ratings</p>
                 </div>
 

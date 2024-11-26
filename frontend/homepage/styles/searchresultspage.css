@@ -69,6 +69,17 @@ body {
   margin: 5px 0;
 }
 
+.btn-seat {
+  background-color: #4b55cc;
+  border: #4b55cc;
+  color: #fff;
+}
+.btn-seat:hover {
+  background-color: #2f3469;
+  border: #4b55cc;
+  color: #fff;
+}
+
 .cta-section {
   background-color: #f8f9fa;
   text-align: center;
