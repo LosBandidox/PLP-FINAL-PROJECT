@@ -1,14 +1,42 @@
-import { Schema, model } from 'mysql';
-
-const bookingSchema = Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    busRoute: { type: String, required: true },
-    seatNumber: { type: String, required: true },
-    classType: { type: String, required: true },
-    date: { type: Date, required: true },
-    paymentStatus: { type: String, default: 'Pending' },
+// models/booking.js
+//seqeulize is an orm that allows you ti interact with the database using javascript
+// instead of raw mysql queries
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
+const User = require('./userModel'); // Import the User model to set up associations
+//
+const Booking = sequelize.define('Booking', {
+    userId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: User,
+            key: 'id'
+        },
+        allowNull: false,
+    },
+    busRoute: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    seatNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    classType: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+    paymentStatus: {
+        type: DataTypes.STRING,
+        defaultValue: 'Pending',
+    }
 }, {
     timestamps: true,
 });
 
-export default model('Booking', bookingSchema);
+module.exports = Booking;
+
