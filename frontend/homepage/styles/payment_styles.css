@@ -56,6 +56,9 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
 }
+.btn-primary a {
+    text-decoration: none;
+}
 
 .btn-primary:hover {
     background-color: #4b55cc;
@@ -82,6 +85,7 @@ body {
 .status-error {
     color: #dc3545;
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
