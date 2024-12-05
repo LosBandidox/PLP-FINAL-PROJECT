@@ -1,10 +1,13 @@
-class SpecialHeader extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML = `
+class LayoutHeader extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+        <head>
+            <link rel="stylesheet" type="text/css" href="../homepage/styles/homepage_styles.css">
+        </head>
             <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container-fluid m-0 w-100">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="./assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
+                    <img src="../assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
                     <h2 class="mb-0 ms-2">TravelSphere</h2>
                 </a>
                 
@@ -34,13 +37,13 @@ class SpecialHeader extends HTMLElement{
                 </div>
             </div>
         </header>
-        `
-    }
+        `;
+  }
 }
 
-class SpecialFooter extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML = `
+class LayoutFooter extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
         <footer class="w-100 h-50">
             <div class="text-center text-light mb-4 ">
                 <h5>Subscribe to our newsletter</h5>
@@ -54,7 +57,7 @@ class SpecialFooter extends HTMLElement{
             <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center text-md-start">
                 <!-- Branding -->
                 <div class="text-light footer-logo d-flex align-items-center">
-                    <img src="./assets/logo.png">
+                    <img src="../assets/logo.png">
                     <h3 class="mb-0 ms-3">Explore the World with Us</h3>
                 </div>
 
@@ -105,9 +108,9 @@ class SpecialFooter extends HTMLElement{
                 </div>
             </div>
         </footer>
-        `
-    }
+        `;
+  }
 }
 
-customElements.define('special-header', SpecialHeader)
-customElements.define('special-footer', SpecialFooter)
+customElements.define('special-header', LayoutHeader);
+customElements.define('special-footer', LayoutFooter);

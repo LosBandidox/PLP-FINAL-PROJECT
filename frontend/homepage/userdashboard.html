@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="/frontend/homepage/styles/userdashboard.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Sidebar -->
+      <div class="row">
+        <div
+          class="col-md-3 col-lg-2 p-0 bg-dark text-white"
+          style="height: 100vh"
+        >
+          <div class="sidebar p-3" style="height: 100%; overflow-y: auto">
+            <!-- Profile Picture Upload Section -->
+            <div class="text-center mb-4">
+              <div class="profile-image-container">
+                <img
+                  id="profileImage"
+                  src="https://via.placeholder.com/150"
+                  alt="Profile Image"
+                  class="img-fluid rounded-circle mb-2"
+                  style="
+                    width: 120px;
+                    height: 120px;
+                    object-fit: cover;
+                    border: 2px solid white;
+                  "
+                />
+                <input
+                  type="file"
+                  id="uploadImage"
+                  accept="image/*"
+                  style="display: none"
+                  onchange="updateProfileImage(event)"
+                />
+                <label for="uploadImage" class="btn btn-primary btn-sm"
+                  >Upload Picture</label
+                >
+              </div>
+            </div>
+
+            <!-- Sidebar Links -->
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#"
+                  id="profileLink"
+                  data-bs-toggle="collapse"
+                  aria-expanded="false"
+                >
+                  Profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="bookingHistoryLink"
+                  >Booking History</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="settingsLink">Settings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-9 col-lg-10 p-4">
+          <!-- Profile Section (Modal) -->
+          <div
+            id="profileModal"
+            class="modal fade"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Profile Information</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="fullName" class="form-label">Full Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="fullName"
+                        value="John Doe"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        value="johndoe@example.com"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Phone Number</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        value="+1 123-456-7890"
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Update Profile
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Booking History Section (Modal) -->
+          <div
+            id="bookingHistoryModal"
+            class="modal fade"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Booking History</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="booking-card">
+                    <h5>Route: Point A to Point B</h5>
+                    <p><strong>Seats: </strong>2, 4, 6</p>
+                    <p><strong>Payment Status: </strong>Paid</p>
+                    <button class="btn btn-warning btn-sm">Modify</button>
+                    <button class="btn btn-danger btn-sm">Cancel</button>
+                  </div>
+                  <div class="booking-card mt-3">
+                    <h5>Route: Point C to Point D</h5>
+                    <p><strong>Seats: </strong>1, 3</p>
+                    <p><strong>Payment Status: </strong>Pending</p>
+                    <button class="btn btn-warning btn-sm">
+                      <a href="/frontend/homepage/seatselection.html">Modify</a>
+                    </button>
+                    <button class="btn btn-danger btn-sm">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Settings Section (Modal) -->
+          <div
+            id="settingsModal"
+            class="modal fade"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Settings</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="changePassword" class="form-label"
+                        >Change Password</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="changePassword"
+                        placeholder="Enter new password"
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-success">Welcome, John Doe!</h3>
+            <p>
+              We are glad to have you back. Here's a quick overview of your
+              booking status and statistics.
+            </p>
+          </div>
+          <!-- Main Dashboard Section -->
+          <div class="card mb-4">
+            <div class="card-header text-white bg-primary">Quick Overview</div>
+            <div class="card-body">
+              <h5>Booking Statistics</h5>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card p-3 bg-light">
+                    <h6>Total Bookings</h6>
+                    <p>5</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card p-3 bg-light">
+                    <h6>Upcoming Trips</h6>
+                    <p>2</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card p-3 bg-light">
+                    <h6>Payments Pending</h6>
+                    <p>1</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../layout/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
