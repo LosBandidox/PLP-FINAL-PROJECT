@@ -60,7 +60,7 @@ body {
 
 .hero-section {
   height: 100vh;
-  background-image: url("../../assets/intro-bus.jpeg"); /* Replace with your own image URL */
+  background-image: url("../../assets/transport4.webp"); /* Replace with your own image URL */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -71,7 +71,7 @@ body {
 }
 .hero-content {
   text-align: center;
-  background: rgba(99, 98, 98, 0);
+  background: rgba(16, 16, 16, 0);
   padding: 40px;
   border-radius: 8px;
 }
