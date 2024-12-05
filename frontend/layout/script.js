@@ -114,7 +114,7 @@ document
   .getElementById("finalConfirmBtn")
   .addEventListener("click", function () {
     alert("Booking Confirmed! Redirecting to confirmation page.");
-    window.location.href = "/frontend/homepage/bookingconfirmation.html";
+    window.location.href = "/frontend/pages/bookingconfirmation.html";
   });
 
 // Function to load booking cards dynamically

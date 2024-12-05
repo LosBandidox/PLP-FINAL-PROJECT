@@ -1,174 +1,243 @@
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", serif;
 }
 
 #main {
-    position: relative;
+  position: relative;
 }
 .navbar {
-    font-weight: 200;
+  font-weight: 200;
 }
 .navbar .container-fluid img {
-    height: 80px;
-    width: 80px;
+  height: 80px;
+  width: 80px;
+}
+
+.navbrand {
+  font-family: "Montserrat", serif;
+  font-weight: 800;
 }
 
 .nav-link {
-    position: relative;
+  position: relative;
+  font-weight: 600;
 }
-
 
 .nav-link::after {
-    content: '';
-    opacity: 0;
-    transition: all 0.2s;
-    height: 2px;
-    width: 100%;
-    background-color: #606ce4;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  content: "";
+  opacity: 0;
+  transition: all 0.2s;
+  height: 2px;
+  width: 100%;
+  background-color: #606ce4;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.nav-link:hover::after{
-    opacity: 1;
+.nav-link:hover::after {
+  opacity: 1;
 }
 
 .nav-btn {
-    width: 15%;
-    color: aliceblue;
-    background-color: #606ce4;
+  width: 15%;
+  color: aliceblue;
+  background-color: #606ce4;
 }
 .nav-btn:hover {
-    color: aliceblue;
-    background-color: #4b55cc;
+  color: aliceblue;
+  background-color: #4b55cc;
 }
 .nav-btn {
-    color: aliceblue;
-    background-color: #606ce4;
+  color: aliceblue;
+  background-color: #606ce4;
 }
 
-
-.search-icon svg{
-    height: 20px;
-    width: 20px;
+.search-icon svg {
+  height: 20px;
+  width: 20px;
 }
-
 
 .hero-section {
-    height: 100vh;
-    background-image: url('../../assets/banner_img.jpg'); /* Replace with your own image URL */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+  height: 100vh;
+  background-image: url("../../assets/intro-bus.jpeg"); /* Replace with your own image URL */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 80px;
 }
 .hero-content {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    border-radius: 8px;
+  text-align: center;
+  background: rgba(99, 98, 98, 0);
+  padding: 40px;
+  border-radius: 8px;
 }
 .hero-content h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 .hero-content p {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.bus-card {
+  margin-top: -15rem;
+}
+
+.bus-booking {
+  font-family: "Poppins", serif;
+}
+
+.bus-booking .card {
+  border-radius: 10px;
+  border: none;
+}
+
+.feature i {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.feature h5 {
+  font-weight: bold;
 }
 
 .btn-primary {
-    background-color: #606ce4;
-    border-color: #606ce4;
+  background-color: #606ce4;
+  border-color: #606ce4;
 }
 
 .cta-section {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 50px 0;
-  }
-  .cta-heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #606ce4;
-  }
-  .cta-subheading {
-    font-size: 1.25rem;
-    color: #6c757d;
-  }
-  .cta-button {
-    background-color: #606ce4;
-    color: white;
-    padding: 10px 30px;
-    font-size: 1.125rem;
-    border-radius: 5px;
-    text-transform: uppercase;
-    border: none;
-    margin-top: 20px;
-    text-decoration: none;
-  }
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 50px 0;
+}
+.cta-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #606ce4;
+}
+.cta-subheading {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+.cta-button {
+  background-color: #606ce4;
+  color: white;
+  padding: 10px 30px;
+  font-size: 1.125rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 20px;
+  text-decoration: none;
+}
 
-  .cta-button:hover {
-    background-color: #606ce4;
-  }
+.cta-button:hover {
+  background-color: #606ce4;
+}
+
+.top-routes .card-img-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.top-routes h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.card h5 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.country-card img {
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.country-card-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.other-countries a {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.section-height {
+  height: 400px; /* Adjust the height value as needed */
+}
 
 footer {
-    position: absolute;
-    top: 100;
-    background-color: #1d2228;
-    padding: 2rem 0;
+  position: absolute;
+  top: 100;
+  background-color: #1d2228;
+  padding: 2rem 0;
 }
 
-.email-input{
-    background-color: transparent;
-    width: 20%;
+.email-input {
+  background-color: transparent;
+  width: 20%;
 }
-.email-input::focus{
-    background-color: transparent;
+.email-input::focus {
+  background-color: transparent;
 }
-.email-input::placeholder{
-    color: #fff;
+.email-input::placeholder {
+  color: #fff;
 }
-
 
 .footer-logo h3 {
-    font-weight: bold;
-    font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .footer-logo img {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }
 
 .footer-logo span {
-    color: #606ce4;
+  color: #606ce4;
 }
 
 .footer-divider {
-    width: 81%;
-    border:1px solid #fff;
+  width: 81%;
+  border: 1px solid #fff;
 }
 
 .social-icons {
-    width: 200px;
+  width: 200px;
 }
-.social-icons svg{
-    height: 20px;
-    width: 20px;
+.social-icons svg {
+  height: 20px;
+  width: 20px;
 }
 
 .btn-subscribe {
-    background-color: #606ce4;
-    color: #fff;
+  background-color: #606ce4;
+  color: #fff;
 }
 
 .btn-subscribe:hover {
-    background-color: #4b58c5;
+  background-color: #4b58c5;
 }
 
 .footer-bottom {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
 }

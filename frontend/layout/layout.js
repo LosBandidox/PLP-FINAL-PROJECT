@@ -1,43 +1,47 @@
 class LayoutHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-        <head>
-            <link rel="stylesheet" type="text/css" href="../homepage/styles/homepage_styles.css">
-        </head>
-            <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container-fluid m-0 w-100">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="../assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
-                    <h2 class="mb-0 ms-2">TravelSphere</h2>
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-4 fw-bold">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login/Sign Up</a>
-                        </li>
-                    </ul>
-                    <button type="button" class="nav-btn btn btn-book-now ms-auto">Book Now</button>
-                    <div class="search-icon mx-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><<path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
-                    </div>
-                </div>
-            </div>
-        </header>
-        `;
+          <head>
+              <link rel="stylesheet" type="text/css" href="../homepage/styles/homepage_styles.css">
+          </head>
+              <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+              <div class="container-fluid m-0 w-100">
+                  <a class="navbar-brand d-flex align-items-center" href="#">
+                      <img src="../assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
+                      <h2 class="mb-0 ms-2 navbrand">TravelSphere</h2>
+                  </a>
+                  
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  
+                 <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+      <ul class="navbar-nav d-flex justify-content-center">
+          <li class="nav-item">
+              <a class="nav-link active" href="/frontend/homepage/index.html">HOME</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">CONTACT</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/frontend/login_register/login.html">SIGNIN</a>
+          </li>
+      </ul>
+      <button type="button" class="nav-btn btn btn-book-now ms-4" onclick="window.location.href='/frontend/login_register/login.html'">
+          Get Started
+      </button>
+      <div class="search-icon mx-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+          </svg>
+      </div>
+  </div>
+  
+          </header>
+          `;
   }
 }
 
@@ -112,5 +116,5 @@ class LayoutFooter extends HTMLElement {
   }
 }
 
-customElements.define('special-header', LayoutHeader);
-customElements.define('special-footer', LayoutFooter);
+customElements.define("special-header", LayoutHeader);
+customElements.define("special-footer", LayoutFooter);
