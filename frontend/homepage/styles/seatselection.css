@@ -22,8 +22,14 @@ body {
 #main {
   position: relative;
 }
+
+.mt-5 {
+  margin-top: 8rem !important;
+}
+
 .navbar {
   font-weight: 200;
+  z-index: 1;
 }
 .navbar .container-fluid img {
   height: 80px;

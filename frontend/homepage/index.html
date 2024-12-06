@@ -28,12 +28,13 @@
       <special-header></special-header>
 
       <section class="hero-section">
+        <div class="overlay"></div>
         <div class="hero-content">
           <h1>Book Now</h1>
           <p>Find cheap bus tickets for your next trip</p>
           <a
-            href="/frontend/login_register/login.html"
-            class="btn btn-primary btn-lg"
+            href="/frontend/pages/seatselection.html"
+            class="btn btn-primary booking-button btn-lg"
             >Search Bus</a
           >
         </div>
@@ -41,7 +42,7 @@
       <section class="bus-booking bg-light py-5">
         <div class="container bus-card">
           <!-- Heading -->
-          <h2 class="text-left text-white fw-bold mb-4">
+          <h2 class="text-left text-white fw-bold mb-4 intro-header">
             Affordable Bus Travel from TravelSphere
           </h2>
           <!-- Search Box -->
@@ -104,9 +105,12 @@
                 </select>
               </div>
               <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary w-25">
+                <a
+                  href="/frontend/pages/seatselection.html"
+                  class="btn btn-primary w-25"
+                >
                   Search
-                </button>
+                </a>
               </div>
             </form>
           </div>
@@ -132,7 +136,7 @@
                   You now can select from more schedules across U.S., Mexico,
                   and Canada with TravelSphere.
                 </p>
-                <a href="#" class="text-decoration-none text-primary"
+                <a href="#" class="text-decoration-none text-purple"
                   >Explore now</a
                 >
               </div>
@@ -151,7 +155,7 @@
                   Watch movies and use our power outlets to stay powered up
                   during your trip.
                 </p>
-                <a href="#" class="text-decoration-none text-primary"
+                <a href="#" class="text-decoration-none text-purple"
                   >Find out what's playing</a
                 >
               </div>
@@ -170,7 +174,7 @@
                   Reserve your favorite seat when booking your ticket. Window or
                   Aisle?
                 </p>
-                <a href="#" class="text-decoration-none text-primary"
+                <a href="#" class="text-decoration-none text-purple"
                   >Learn more</a
                 >
               </div>
@@ -188,7 +192,7 @@
                 <p>
                   Easily modify tickets or add bags using "Manage My Booking".
                 </p>
-                <a href="#" class="text-decoration-none text-primary"
+                <a href="#" class="text-decoration-none text-purple"
                   >Discover options</a
                 >
               </div>
@@ -199,7 +203,9 @@
 
       <section class="top-routes py-5">
         <div class="container">
-          <h2 class="text-center fw-bold mb-4">Top Traveled Bus Routes</h2>
+          <h2 class="text-center fw-bold mb-4 heading">
+            Top Traveled Bus Routes
+          </h2>
           <div class="row g-4">
             <!-- Card 1 -->
             <div class="col-md-4">
@@ -308,7 +314,9 @@
       </section>
 
       <div class="container py-5">
-        <h2 class="text-center mb-4">Popular countries across the world</h2>
+        <h2 class="text-center mb-4 header">
+          Popular countries across the world
+        </h2>
         <p class="text-center">
           With TravelSphere, you can travel by bus and train in more than 80
           countries in the world! Enjoy your trip with a seamless and
@@ -316,7 +324,7 @@
           sustainable modes of transportation.
         </p>
 
-        <div class="row g-4 mt-4">
+        <div class="row no-spacing gap-0 mt-4">
           <div class="col-md-4">
             <div class="position-relative country-card">
               <img
@@ -351,11 +359,17 @@
 
         <div class="mt-4 text-center other-countries">
           <h4>Other countries:</h4>
-          <a href="#" class="btn btn-outline-primary">South Africa</a>
-          <a href="#" class="btn btn-outline-primary">Australia</a>
-          <a href="#" class="btn btn-outline-primary">Spain</a>
-          <a href="#" class="btn btn-outline-primary">Turkey</a>
-          <a href="#" class="btn btn-outline-primary">Argentina</a>
+          <a href="#" class="btn btn-outline-primary country-button"
+            >South Africa</a
+          >
+          <a href="#" class="btn btn-outline-primary country-button"
+            >Australia</a
+          >
+          <a href="#" class="btn btn-outline-primary country-button">Spain</a>
+          <a href="#" class="btn btn-outline-primary country-button">Turkey</a>
+          <a href="#" class="btn btn-outline-primary country-button"
+            >Argentina</a
+          >
         </div>
       </div>
 
@@ -365,7 +379,7 @@
           style="background-color: #ebeaff; border-radius: 10px"
         >
           <div class="col-md-6 py-4 px-5">
-            <h2 class="fw-bold">Why join TravelSphere?</h2>
+            <h2 class="fw-bold heading">Why join TravelSphere?</h2>
             <h4 class="fw-semibold mt-3">Faster booking and checkout</h4>
             <ul class="list-unstyled mt-3">
               <li>&#8226; Manage and cancel your trips with ease</li>
