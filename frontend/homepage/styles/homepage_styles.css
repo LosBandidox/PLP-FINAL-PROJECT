@@ -77,6 +77,7 @@ body {
 
   .nav-btn {
     margin-top: 1rem;
+    font-size: 16px;
   }
 
   .search-icon {
@@ -85,6 +86,15 @@ body {
   .intro-header {
     z-index: 1 !important;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* For small screens */
+  .nav-btn {
+    font-size: 14px; /* Slightly smaller font */
+    width: 70%; /* Make button take full width if needed */
+    text-align: center; /* Center text */
   }
 }
 
@@ -98,6 +108,19 @@ body {
   justify-content: center;
   color: white;
   margin-bottom: 80px;
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh; /* Reduced height for tablets and smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    height: 50vh; /* Further reduced height for mobile screens */
+  }
 }
 
 .overlay {
@@ -155,13 +178,104 @@ body {
   font-weight: bold;
 }
 
+/* Default styles for desktop */
+.responsive-btn {
+  padding: 0.5rem 1.5rem; /* Desktop-specific padding */
+  font-size: 1rem; /* Maintain font size for desktop */
+  width: auto; /* Keep button width dynamic for desktop */
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .responsive-btn {
+    font-size: 0.9rem; /* Slightly smaller font size */
+    padding: 0.5rem 1rem; /* Adjust padding */
+    width: 70%; /* Full width for smaller screens */
+    text-align: center; /* Ensure centered text */
+    margin: 0.5rem 0; /* Add spacing if needed */
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-btn {
+    font-size: 0.85rem; /* Further reduce font size for smaller devices */
+    padding: 0.4rem 0.8rem; /* Compact padding */
+  }
+}
+
 .btn-primary {
   background-color: #606ce4;
   border-color: #606ce4;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
 }
 .btn-primary:hover {
   background-color: #39408d;
   border-color: #3b44a7;
+}
+
+@media (max-width: 768px) {
+  .btn-primary {
+    width: 50%;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-primary {
+    width: 70%;
+    font-size: 0.85rem;
+  }
+}
+
+/* Default styles for desktop and tablets */
+.responsive-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center align buttons by default */
+  gap: 1rem; /* Adjust the gap as needed */
+  margin-bottom: 1rem; /* Adjust the margin as needed */
+}
+
+.responsive-buttons button {
+  padding: 0.5rem 1rem; /* Standard padding */
+  font-size: 1rem; /* Keep text readable */
+  width: auto; /* Dynamic width for larger screens */
+  text-align: center; /* Center-align text */
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .responsive-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .responsive-buttons button {
+    width: 70%; /* Full width for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-buttons button {
+    font-size: 0.9rem; /* Slightly reduce font size */
+    padding: 0.4rem 0.8rem; /* Compact padding */
+  }
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .countries {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .count {
+    width: 80%;
+  }
 }
 
 .cta-section {
