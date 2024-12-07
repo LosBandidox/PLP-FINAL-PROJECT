@@ -70,6 +70,16 @@ body {
     margin: 0;
   }
 
+  /* Add custom spacing between all nav links */
+  .navbar-nav .nav-item {
+    margin-right: 20px; /* Adjust this value as needed */
+  }
+
+  /* Remove the right margin from the last nav item */
+  .navbar-nav .nav-item:last-child {
+    margin-right: 0;
+  }
+
   .nav-item {
     text-align: center;
     margin: 0.5rem 0;

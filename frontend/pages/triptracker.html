@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Your Trip</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "poppins";
+      }
+      .track-section {
+        background: #2b3e50
+          url("https://img.freepik.com/premium-photo/black-white-map-world-dark-background-toned_1308175-74223.jpg?ga=GA1.1.1695319709.1711572879&semt=ais_hybrid")
+          no-repeat center center / cover;
+        padding: 4rem 1rem;
+        color: white;
+        text-align: center;
+      }
+
+      .track-card {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        padding-top: 4rem;
+      }
+      .radio-label {
+        margin-right: 1rem;
+      }
+
+      .form-check-label {
+        color: black;
+      }
+
+      .btn-primary {
+        background-color: purple;
+        border-color: purple;
+      }
+
+      .btn-primary:hover {
+        background-color: darkviolet;
+        border-color: darkviolet;
+      }
+
+      span {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main h-100">
+      <special-header></special-header>
+
+      <!-- Track Your Trip Section -->
+      <section class="track-section">
+        <h2>Track your trip</h2>
+        <div class="container">
+          <div class="track-card mx-auto col-md-8 col-lg-6">
+            <!-- Radio Buttons -->
+            <div class="mb-4 text-start">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="tripType"
+                  id="departures"
+                  value="departures"
+                  checked
+                />
+                <label class="form-check-label radio-label" for="departures"
+                  >Departures</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="tripType"
+                  id="arrivals"
+                  value="arrivals"
+                />
+                <label class="form-check-label radio-label" for="arrivals"
+                  >Arrivals</label
+                >
+              </div>
+            </div>
+
+            <!-- Stop Search Input -->
+            <div class="input-group mb-4">
+              <span class="input-group-text">
+                <i class="fas fa-location-dot"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Stop"
+                aria-label="Stop"
+              />
+              <button class="btn btn-primary" type="button">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+
+            <!-- Divider -->
+            <div class="text-center my-3">
+              <span>or</span>
+            </div>
+
+            <!-- Booking Number Input -->
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fas fa-ticket-alt"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Booking number"
+                aria-label="Booking number"
+              />
+              <button class="btn btn-primary" type="button">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+
+            <p class="mt-2 text-muted small">
+              Can be found on your ticket and your confirmation email.
+            </p>
+          </div>
+        </div>
+      </section>
+      <special-footer></special-footer>
+    </div>
+
+    <script src="../layout/layout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  </body>
+</html>

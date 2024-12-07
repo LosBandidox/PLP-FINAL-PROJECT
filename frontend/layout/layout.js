@@ -19,17 +19,18 @@ class LayoutHeader extends HTMLElement {
             <div class="collapse navbar-collapse  justify-content-center" id="navbarNav">
               <ul class="navbar-nav d-flex justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link active" href="/frontend/homepage/index.html">HOME</a>
+                  <a class="nav-link mx-2 active" href="/frontend/homepage/index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">ABOUT US</a>
+                  <a class="nav-link mx-2" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">CONTACT</a>
+                  <a class="nav-link mx-2" href="#">Contact</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/frontend/login_register/login.html">SIGNIN</a>
-                </li>
+              <li class="nav-item">
+  <a class="nav-link mx-2" href="/frontend/pages/triptracker.html" style="margin-right: 20px;">Trip Tracker</a>
+</li>
+
               </ul>
             <div class="nav-actions d-flex align-items-center flex-wrap justify-content-center">
  <button 
