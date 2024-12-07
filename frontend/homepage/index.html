@@ -116,7 +116,12 @@
           </div>
           <!-- Action Buttons -->
           <div class="d-flex flex-wrap gap-3 mb-5 responsive-buttons">
-            <button class="btn btn-outline-secondary">Manage My Booking</button>
+            <a
+              href="/frontend/login_register/login.html"
+              class="btn btn-outline-secondary"
+              >Manage My Booking</a
+            >
+
             <button class="btn btn-outline-secondary">Track Your Trip</button>
             <button class="btn btn-outline-secondary">Help</button>
           </div>
@@ -379,6 +384,7 @@
           class="row align-items-center bg-full section-height"
           style="background-color: #ebeaff; border-radius: 10px"
         >
+          <!-- Text Section -->
           <div class="col-md-6 py-4 px-5">
             <h2 class="fw-bold heading">Why join TravelSphere?</h2>
             <h4 class="fw-semibold mt-3">Faster booking and checkout</h4>
@@ -389,17 +395,88 @@
             </ul>
             <a href="#" class="btn btn-primary mt-3">Create an account</a>
           </div>
+
+          <!-- Image Section -->
           <div class="col-md-6 text-center">
             <img
-              src="/frontend/assets/wallet.svg"
+              src="/frontend/assets/business (2).png"
               alt="Benefits"
-              class="img-fluid"
+              class="img-fluid d-block mx-auto responsive-image"
             />
           </div>
         </div>
       </div>
 
-      <section>
+      <section class="why-book-with-us py-5">
+        <div class="container text-center">
+          <h2 class="section-title">Why book with us?</h2>
+          <div class="row mt-4">
+            <div class="col-md-3">
+              <div class="card feature-card">
+                <div class="icon mb-3">
+                  <img
+                    src="/frontend/assets/bus-stop.png"
+                    alt="Easy Booking"
+                    class="booking-img"
+                  />
+                </div>
+                <h4 class="feature-title">Easy Booking</h4>
+                <p class="feature-description">
+                  We offer easy and convenient bus bookings with attractive
+                  offers.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card feature-card">
+                <div class="icon mb-3">
+                  <img
+                    src="/frontend/assets/reduce-cost.png"
+                    alt="Lowest Price"
+                    class="booking-img"
+                  />
+                </div>
+                <h4 class="feature-title">Lowest Price</h4>
+                <p class="feature-description">
+                  We ensure low rates on bus tickets and holiday packages.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card feature-card">
+                <div class="icon mb-3">
+                  <img
+                    src="/frontend/assets/hot-deal.png"
+                    alt="Exciting Deals"
+                    class="booking-img"
+                  />
+                </div>
+                <h4 class="feature-title">Exciting Deals</h4>
+                <p class="feature-description">
+                  Enjoy exciting deals on bus travel and tour packages.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card feature-card">
+                <div class="icon mb-3">
+                  <img
+                    src="/frontend/assets/technical-support.png"
+                    alt="24/7 Support"
+                    class="booking-img"
+                  />
+                </div>
+                <h4 class="feature-title">24/7 Support</h4>
+                <p class="feature-description">
+                  Get assistance 24/7 for any travel-related query.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="booking-section">
         <div
           class="cta-section d-flex align-items-center justify-content-center"
           style="height: 70vh"

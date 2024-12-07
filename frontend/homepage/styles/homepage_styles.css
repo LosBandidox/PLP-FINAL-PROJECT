@@ -283,6 +283,13 @@ body {
   text-align: center;
   padding: 50px 0;
 }
+
+@media (max-width: 768px) {
+  .booking-section {
+    height: 500px;
+    padding-bottom: 5rem;
+  }
+}
 .cta-heading {
   font-size: 2.5rem;
   font-weight: 700;
@@ -349,7 +356,7 @@ body {
 }
 
 .section-height {
-  height: 400px; /* Adjust the height value as needed */
+  height: 450px; /* Adjust the height value as needed */
 }
 
 .heading {
@@ -365,6 +372,79 @@ body {
 }
 .country-button:hover {
   background-color: #606ce4;
+}
+
+.why-book-with-us {
+  background-color: #ebeced;
+}
+
+.booking-img {
+  width: 44px;
+  height: 44px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  position: relative;
+  color: #606ce4;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  width: 40px;
+  height: 4px;
+  background-color: #9b7ebd;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Apply spacing between cards only for mobile screen sizes within the specific section */
+@media (max-width: 768px) {
+  .why-book-with-us .row > .col-md-3 {
+    padding-bottom: 15px; /* Adjust this value for the desired spacing */
+  }
+}
+
+/* Style for mobile screens only */
+@media (max-width: 768px) {
+  .responsive-image-wrapper {
+    display: flex;
+    justify-content: center; /* Center-aligns the image */
+  }
+
+  .responsive-image {
+    max-width: 80%; /* Adjust this value to make the image smaller or larger */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .section-height {
+    height: 630px;
+  }
 }
 
 footer {
