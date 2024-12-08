@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Email Validation Regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Login Form Validation
+  // Login Form Submission
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
     let isValid = true;
@@ -70,11 +70,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isValid) {
-      alert("Call the backend api");
+      const loginData = {
+        email: loginEmail.value,
+        password: loginPassword.value,
+      };
+
+      fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Login successful");
+            window.location.href = "userdashboard.html"; // Redirect on success
+          } else {
+            alert("Login failed: " + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again later.");
+        });
     }
   });
 
-  // Registration Form Validation
+  // Registration Form Submission
   registerForm.addEventListener("submit", function (e) {
     e.preventDefault();
     let isValid = true;
@@ -143,17 +167,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isValid) {
-      alert("Call the backend api");
+      const registerData = {
+        email: registerEmail.value,
+        password: registerPassword.value,
+      };
+
+      fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registerData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Registration successful");
+            window.location.href = "userdashboard.html"; // Redirect on success
+          } else {
+            alert("Registration failed: " + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again later.");
+        });
     }
   });
-
-  // JavaScript to handle navigation
-  document
-    .getElementById("loginButton")
-    .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default form submission (optional, if part of a form)
-      window.location.href = "userdashboard.html"; // Redirect to the dashboard page
-    });
 
   // Helper Functions for Validation
   function setInvalid(inputElement, errorElementId, errorMessage) {
