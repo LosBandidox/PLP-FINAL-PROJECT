@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", serif;
   background-color: #f4f6f9;
   color: #333;
 }
@@ -11,7 +11,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  background-color: #343a40;
+  background-color: #cce0f5 !important;
   height: 100vh;
   padding: 20px;
 }
@@ -22,8 +22,21 @@ body {
   color: #fff;
 }
 
+.custom-btn {
+  background-color: #606ce4 !important; /* Main button color */
+  border-color: #606ce4 !important; /* Border color */
+  color: white !important; /* Text color */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth hover effect */
+}
+
+.custom-btn:hover {
+  background-color: #4d56c1 !important; /* Hover color */
+  border-color: #4d56c1 !important; /* Border hover color */
+  color: white !important; /* Ensure text color remains consistent */
+}
+
 .nav-link {
-  color: #606ce4;
+  color: #bfecff !important;
   font-size: 18px;
   margin-bottom: 15px;
   padding: 10px;
@@ -35,12 +48,17 @@ body {
 }
 
 .nav-link.active {
-  background-color: #007bff;
+  background-color: #e2bbe9;
   color: #fff;
 }
 
 .nav-item {
   margin-bottom: 15px;
+  color: #e2bbe9;
+}
+
+.btn-secondary {
+  background-color: blueviolet;
 }
 
 /* Main Content Area Styles */
