@@ -10,11 +10,11 @@ class LayoutHeader extends HTMLElement {
                     <img src="../assets/logo.png" alt="TravelSphere logo" class="d-inline-block align-text-top">
                     <h2 class="mb-0 ms-2">TravelSphere</h2>
                 </a>
-                
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-4 fw-bold">
                         <li class="nav-item">
@@ -27,7 +27,7 @@ class LayoutHeader extends HTMLElement {
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Login/Sign Up</a>
+                            <a class="nav-link" href="/../login_register/login.html">Login/Sign Up</a>
                         </li>
                     </ul>
                     <button type="button" class="nav-btn btn btn-book-now ms-auto">Book Now</button>
@@ -88,7 +88,7 @@ class LayoutFooter extends HTMLElement {
 
                 <!-- Copyright -->
                 <div class="footer-bottom text-center">
-                    &copy; 2024 Brand, Inc. • <a href="#" class="text-decoration-none text-white">Privacy</a> • <a href="#" class="text-decoration-none text-white">Terms</a> • <a href="#" class="text-decoration-none text-white">Sitemap</a>
+                    &copy; 2024 Brand, Inc. • <a href="#" class="text-decoration-block text-white">Privacy</a> • <a href="#" class="text-decoration-block text-white">Terms</a> • <a href="#" class="text-decoration-block text-white">Sitemap</a>
                 </div>
 
                 <!-- Social Icons -->
@@ -112,5 +112,5 @@ class LayoutFooter extends HTMLElement {
   }
 }
 
-customElements.define('special-header', LayoutHeader);
-customElements.define('special-footer', LayoutFooter);
+customElements.define("special-header", LayoutHeader);
+customElements.define("special-footer", LayoutFooter);
