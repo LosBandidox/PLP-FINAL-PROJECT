@@ -57,12 +57,39 @@
         </div>
       </div>
     </header>
-
     <div class="contactus">
-      <h1>Contact Us</h1>
+      <h1>Contact TravelSphere</h1>
       <h2>Phone</h2>
       <p>+254 7123 4567</p>
+    
+      <h2>Email</h2>
+      <p><a href="mailto:support@travelsphere.com">support@travelsphere.com</a></p>
+    
+      <h2>Physical Address</h2>
+      <p>123 Travel Lane, Nairobi, Kenya</p>
+    
+      <h2>Contact Form</h2>
+      <form action="submit_contact.php" method="post">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+    
+        <button type="submit">Send Message</button>
+      </form>
+    
+      <h2>Follow Us</h2>
+      <div class="social-links">
+        <a href="https://facebook.com/travelsphere" target="_blank">Facebook</a>
+        <a href="https://twitter.com/travelsphere" target="_blank">Twitter</a>
+        <a href="https://instagram.com/travelsphere" target="_blank">Instagram</a>
+      </div>
     </div>
+    
   </div>
   <special-footer></special-footer>
   <script src="../layout/layout.js"></script>
