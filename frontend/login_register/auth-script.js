@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Email Validation Regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Login Form Validation
-  loginForm.addEventListener("submit", function (e) {
+  // Login Form Submission
+  loginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
     let isValid = true;
 
@@ -70,12 +70,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isValid) {
-      alert("Call the backend api");
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: loginEmail.value,
+            password: loginPassword.value,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("Login successful!");
+          window.location.href = "userdashboard.html"; // Redirect to the dashboard
+        } else {
+          alert(data.message || "Login failed");
+        }
+      } catch (error) {
+        alert("An error occurred: " + error.message);
+      }
     }
   });
 
-  // Registration Form Validation
-  registerForm.addEventListener("submit", function (e) {
+  // Registration Form Submission
+  registerForm.addEventListener("submit", async function (e) {
     e.preventDefault();
     let isValid = true;
 
@@ -143,7 +165,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isValid) {
-      alert("Call the backend api");
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: registerEmail.value,
+            password: registerPassword.value,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("Registration successful!");
+          window.location.href = "login.html"; // Redirect to the login page
+        } else {
+          alert(data.message || "Registration failed");
+        }
+      } catch (error) {
+        alert("An error occurred: " + error.message);
+      }
     }
   });
 
@@ -158,6 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function setValid(inputElement, errorElementId) {
     inputElement.classList.remove("is-invalid");
     inputElement.classList.add("is-valid");
-    document.getElementById(errorElementId).style.display = "block";
+    document.getElementById(errorElementId).style.display = "none";
   }
 });
